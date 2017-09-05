@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value = "LOG" ></dbname>    //指定数据库名
+    <version value = "1" ></version>    //指定数据库版本号
+    <list>                                 //指定所有的映射模型
+        <mapping class = "com.wind.log1.Daily"></mapping>
+    </list>
+</litepal>

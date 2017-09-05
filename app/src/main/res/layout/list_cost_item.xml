@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/img_cost_view"
+        android:layout_margin="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+
+    <LinearLayout
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_cost_title"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="marquee"
+            android:gravity="left"
+            android:maxLines="1"
+            android:text="costTitle"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_cost_date"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="costDate"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_cost_money"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center|right"
+        android:layout_weight="1"
+        android:text="costMoney"
+        android:textSize="30sp"
+        />
+</LinearLayout>
