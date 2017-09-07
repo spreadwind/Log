@@ -7,14 +7,14 @@ package com.wind.log;
 public class CostBean {
 
 //    private int costView;
-    private String costTitle;
-    private String costDate;
-    private String costMoney;
+    public String costType;
+    public String costDate;
+    public String costMoney;
 
 
-    public CostBean(String costTitle, String costDate, String costMoney) {
+    public CostBean(String costType, String costDate, String costMoney) {
 //        this.costView = costView;
-        this.costTitle = costTitle;
+        this.costType = costType;
         this.costDate = costDate;
         this.costMoney = costMoney;
     }
@@ -23,8 +23,8 @@ public class CostBean {
 //        return costView;
 //    }
 
-    public String getCostTitle() {
-        return costTitle;
+    public String getCostType() {
+        return costType;
     }
 
     public String getCostDate() {

@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -18,15 +17,15 @@ public class CostListAdapter extends RecyclerView.Adapter<CostListAdapter.ViewHo
     private List<CostBean> mCostList;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgCostView;
-        TextView tvCostTitle;
+//        ImageView imgCostView;
+        TextView tvCostType;
         TextView tvCostDate;
         TextView tvCostMoney;
 
         public ViewHolder(View view) {
             super(view);
-            imgCostView = (ImageView) view.findViewById(R.id.img_cost_view);
-            tvCostTitle = (TextView) view.findViewById(R.id.tv_cost_title);
+//            imgCostView = (ImageView) view.findViewById(R.id.img_cost_view);
+            tvCostType = (TextView) view.findViewById(R.id.tv_cost_type);
             tvCostDate = (TextView) view.findViewById(R.id.tv_cost_date);
             tvCostMoney = (TextView) view.findViewById(R.id.tv_cost_money);
         }
@@ -48,7 +47,7 @@ public class CostListAdapter extends RecyclerView.Adapter<CostListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         CostBean costBean = mCostList.get(position);
 //        holder.imgCostView.setImageResource(CostBean.getCostView());
-        holder.tvCostTitle.setText(costBean.getCostTitle());
+        holder.tvCostType.setText(costBean.getCostType());
         holder.tvCostDate.setText(costBean.getCostDate());
         holder.tvCostMoney.setText(costBean.getcostMoney());
 
