@@ -1,26 +1,56 @@
 package com.wind.log.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by H on 2017/9/5.
+ * 创建数据库的数据表：保存记帐信息
  */
 
-/*public class Daily extends DataSupport{
+public class Daily extends DataSupport {
 
     private int id;
-    private String txtCostTitle;
-    private String txtCostDate;
-    private String txtCostMoney;
-    private String txtCostRemarks;
-    private String txtCostPay;
+    private String type;
+    private String date;
+    private String money;  //应用用double
 
-    public Daily(int id, String txtCostTitle, String txtCostDate, String txtCostMoney,
-                 String txtCostRemarks, String txtCostPay) {
-        this.id = id;
-        this.txtCostTitle = txtCostTitle;
-        this.txtCostDate = txtCostDate;
-        this.txtCostMoney = txtCostMoney;
-        this.txtCostRemarks = txtCostRemarks;
-        this.txtCostPay = txtCostPay;
+
+    public int getId() {
+        return id;
     }
 
-}*/
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
+
+}
+
+
+
+
+
