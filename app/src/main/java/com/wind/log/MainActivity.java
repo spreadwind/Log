@@ -1,68 +1,93 @@
 package com.wind.log;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.wind.log.bean.CostBean;
-import com.wind.log.db.Daily;
-
-import org.litepal.LitePal;
-import org.litepal.crud.DataSupport;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.wind.log.fragments.AssetFragment;
+import com.wind.log.fragments.BillFragment;
+import com.wind.log.fragments.MeFragment;
 
 /**
  *
+ * viewpager+fragment部分参考：https://github.com/yaoyongchao/MyTabLayout
  */
 
 public class MainActivity extends AppCompatActivity {
-    private List<CostBean> mCostBeanList;
+    private TabLayout mTabLayout;
+    //Tab 文字
+    private final int[] TAB_TITLES = new int[]{R.string.asset,R.string.bill,R.string.me};
+    //Tab 图片
+    private final int[] TAB_IMGS = new int[]{R.drawable.tab_asset_selector,R.drawable.tab_bill_selector,R.drawable.tab_me_selector};
+    //Fragment 数组
+    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new AssetFragment() ,new BillFragment(),new MeFragment()};
+    //Tab 数目
+    private final int COUNT = TAB_TITLES.length;
+    private MyViewPagerAdapter mAdapter;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCostBeanList = new ArrayList<>();
-
-
-        initCostData(); //初始化数据
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        CostListAdapter adapter = new CostListAdapter(mCostBeanList);
-        recyclerView.setAdapter(adapter);
-
-        //记一笔的点击事件 悬浮按钮
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add);
-        fab.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                LitePal.getDatabase();          //创建数据库
-                Intent intent = new Intent (MainActivity.this, AddCostActivity.class);
-                startActivity(intent);
-            }
-        });
+        initViews();
     }
 
-    private void initCostData() {
+    private void initViews() {
+        mTabLayout = (TabLayout)findViewById(R.id.tablayout);
+        setTabs(mTabLayout,this.getLayoutInflater(),TAB_TITLES,TAB_IMGS);
 
-        List<Daily> dailys = DataSupport.order("date desc").find(Daily.class);
-        for (Daily daily : dailys) {
+        mAdapter = new MyViewPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mViewPager.setAdapter(mAdapter);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+    }
 
-            CostBean costBean = new CostBean();
-            /*costBean.costType = "ktqn";
-            costBean.costDate = "95-10";
-            costBean.costMoney = "88";*/
-            costBean.costType = daily.getType();
-            costBean.costDate = daily.getDate();
-            costBean.costMoney = daily.getMoney();
-            mCostBeanList.add(costBean);
+    /**
+     * @description: 设置添加Tab
+     */
+    private void setTabs(TabLayout tabLayout, LayoutInflater inflater, int[] tabTitles, int[] tabImgs){
+        for (int i = 0; i < tabImgs.length; i++) {
+            TabLayout.Tab tab = tabLayout.newTab();
+            View view = inflater.inflate(R.layout.tab_custom,null);
+            tab.setCustomView(view);
+
+            TextView tvTitle = (TextView)view.findViewById(R.id.tv_tab);
+            tvTitle.setText(tabTitles[i]);
+            ImageView imgTab = (ImageView) view.findViewById(R.id.img_tab);
+            imgTab.setImageResource(tabImgs[i]);
+            tabLayout.addTab(tab);
+
         }
     }
+
+    /**
+     * @description: ViewPager 适配器
+     */
+    private class MyViewPagerAdapter extends FragmentPagerAdapter {
+        public MyViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return TAB_FRAGMENTS[position];
+        }
+
+        @Override
+        public int getCount() {
+            return COUNT;
+        }
+    }
+
+
 }
