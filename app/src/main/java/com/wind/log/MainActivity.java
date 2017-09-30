@@ -7,10 +7,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wind.log.fragments.AssetFragment;
 import com.wind.log.fragments.BillFragment;
@@ -38,13 +42,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         initViews();
     }
 
     private void initViews() {
         mTabLayout = (TabLayout)findViewById(R.id.tablayout);
         setTabs(mTabLayout,this.getLayoutInflater(),TAB_TITLES,TAB_IMGS);
-
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mAdapter);
@@ -66,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
             ImageView imgTab = (ImageView) view.findViewById(R.id.img_tab);
             imgTab.setImageResource(tabImgs[i]);
             tabLayout.addTab(tab);
-
         }
     }
 
@@ -87,6 +91,30 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
             return COUNT;
         }
+    }
+
+    /**
+     * toolbar 处理部分
+     * @param menu
+     * @return
+     */
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toobar, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.backup:
+                Toast.makeText(this, "you clicked backup", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.delete:
+                Toast.makeText(this, "you clicked delete", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
 

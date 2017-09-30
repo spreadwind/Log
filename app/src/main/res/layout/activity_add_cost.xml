@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:weightSum="1">
 
-    <android.support.v7.widget.Toolbar
+  <!--  <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_marginBottom="19dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme" />-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:id="@+id/img_cost_money"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_cost_money" />
+            android:src="@drawable/icon_cost_money" />
 
         <EditText
             android:id="@+id/edt_cost_money"
@@ -52,7 +52,7 @@
             android:id="@+id/img_cost_type"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_cost_remarks" />
+            android:src="@drawable/icon_cost_remarks" />
 
         <EditText
             android:id="@+id/edt_cost_type"

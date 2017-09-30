@@ -1,6 +1,20 @@
 package com.wind.log;
 
-/*public class AddCostActivity extends AppCompatActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.wind.log.bean.CostBean;
+import com.wind.log.db.Daily;
+
+import java.util.List;
+
+public class AddCostActivity extends AppCompatActivity {
     private List<CostBean> mCostBeanList;
 //    private EditText mEditTextRemarks;
     private EditText mEdtType;
@@ -17,8 +31,8 @@ package com.wind.log;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cost);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
 
         mEdtMoney = (EditText) this.findViewById(R.id.edt_cost_money);
         mEdtType = (EditText) this.findViewById(R.id.edt_cost_type);
@@ -37,16 +51,16 @@ package com.wind.log;
                 finish();
            }
         });
-   *//*     //点击类型文本，进入选择类型界面
-      mTvType.setOnClickListener(new View.OnClickListener(){
+        //点击类型文本，进入选择类型界面
+     /* mEdtType.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (AddCostActivity.this, SelectTypeActivity.class);
                 startActivity(intent);
                 finish();
             }
-        });
-*//*
+        });*/
+
     }
 
     private void addCostData() {
@@ -63,4 +77,4 @@ package com.wind.log;
     }
 
 
-}*/
+}

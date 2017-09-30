@@ -5,22 +5,29 @@
 
     <ImageView
 
-        android:id="@+id/img_select_type_back"
+        android:id="@+id/img_asset_back"
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_action_arrow_left"
+        android:src="@drawable/icon_left"
         android:layout_alignParentLeft="true"/>
 
     <TextView
 
-        android:id="@+id/tv_select_type_title"
+        android:id="@+id/tv_asset_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/img_select_type_back"
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:text="选择类目"
+        android:hint="我的资金"
         android:textSize="30sp"
         />
-
+    <ImageView
+        android:id="@+id/img_asset_add"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/icon_add"
+        />
 </RelativeLayout>

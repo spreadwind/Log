@@ -38,7 +38,7 @@ public class CostListAdapter extends RecyclerView.Adapter<CostListAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_cost_item, parent, false);
+                .inflate(R.layout.cost_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -49,13 +49,11 @@ public class CostListAdapter extends RecyclerView.Adapter<CostListAdapter.ViewHo
         holder.tvCostType.setText(costBean.getCostType());
         holder.tvCostDate.setText(costBean.getCostDate());
         holder.tvCostMoney.setText(costBean.getCostMoney());
-
     }
 
     @Override
     public int getItemCount() {
         return mCostBeanList.size();
     }
-
 
 }
