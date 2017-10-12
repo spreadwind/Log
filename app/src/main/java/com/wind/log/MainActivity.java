@@ -26,13 +26,16 @@ import com.wind.log.fragments.MeFragment;
  */
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private TabLayout mTabLayout;
     //Tab 文字
     private final int[] TAB_TITLES = new int[]{R.string.asset,R.string.bill,R.string.me};
     //Tab 图片
-    private final int[] TAB_IMGS = new int[]{R.drawable.tab_asset_selector,R.drawable.tab_bill_selector,R.drawable.tab_me_selector};
+    private final int[] TAB_IMGS = new int[]{R.drawable.tab_asset_selector,
+            R.drawable.tab_bill_selector,R.drawable.tab_me_selector};
     //Fragment 数组
-    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new AssetFragment() ,new BillFragment(),new MeFragment()};
+    private final Fragment[] TAB_FRAGMENTS = new Fragment[] {new AssetFragment() ,
+            new BillFragment(),new MeFragment()};
     //Tab 数目
     private final int COUNT = TAB_TITLES.length;
     private MyViewPagerAdapter mAdapter;

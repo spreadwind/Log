@@ -3,13 +3,14 @@ package com.wind.log.fragments;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.wind.log.AddCostActivity;
-import com.wind.log.CostListAdapter;
 import com.wind.log.R;
+import com.wind.log.adapter.CostListAdapter;
 import com.wind.log.bean.CostBean;
 import com.wind.log.db.Daily;
 
@@ -38,11 +39,13 @@ public class BillFragment extends BaseFragment {
     public void initData() {
 
         initCostData(); //初始化数据
-        RecyclerView recyclerView = (RecyclerView) (getActivity().findViewById(R.id.rv_cost));
+        RecyclerView rvBill = (RecyclerView) (getActivity().findViewById(R.id.rv_cost));
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        recyclerView.setLayoutManager(layoutManager);
-        CostListAdapter adapter = new CostListAdapter(mCostBeanList);
-        recyclerView.setAdapter(adapter);
+        rvBill.setLayoutManager(layoutManager);
+        CostListAdapter adapter = new CostListAdapter(mCostBeanList) ;
+        rvBill.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        rvBill.setAdapter(adapter);
+
 
         //记一笔的点击事件 悬浮按钮
         FloatingActionButton fab = (FloatingActionButton) (getActivity().findViewById(R.id.fab_add));
@@ -57,19 +60,23 @@ public class BillFragment extends BaseFragment {
     }
 
     private void initCostData() {
-
-
-        List<Daily> dailys = DataSupport.order("date desc").find(Daily.class);
+       /* for (int i = 0; i < 20 ; i++) {
+        CostBean costBean = new CostBean();
+        costBean.costType = "ktqn";
+        costBean.costDate = "95-10";
+        costBean.costMoney = "88";
+        mCostBeanList.add(costBean);
+        }*/
+        List<Daily> dailys = DataSupport.findAll(Daily.class);
         for (Daily daily : dailys) {
-
+//            mCostBeanList.clear();
             CostBean costBean = new CostBean();
-            /*costBean.costType = "ktqn";
-            costBean.costDate = "95-10";
-            costBean.costMoney = "88";*/
-            costBean.costType = daily.getType();
-            costBean.costDate = daily.getDate();
-            costBean.costMoney = daily.getMoney();
+            costBean.type = daily.getType();
+            costBean.note = daily.getNote();
+            costBean.money = daily.getMoney();
+            costBean.date = daily.getDate();
             mCostBeanList.add(costBean);
+
         }
     }
 }

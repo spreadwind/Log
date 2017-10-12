@@ -20,23 +20,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         >
 
         <ImageView
-            android:id="@+id/img_cost_money"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/img_add_money"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
             android:src="@drawable/icon_cost_money" />
 
         <EditText
-            android:id="@+id/edt_cost_money"
+            android:id="@+id/edt_add_money"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/img_cost_money"
+            android:layout_toRightOf="@id/img_add_money"
             android:layout_marginLeft="10dp"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:inputType="numberDecimal"
             android:hint="消费金额"/>
 
@@ -44,27 +45,26 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         >
 
         <ImageView
-            android:id="@+id/img_cost_type"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/img_add_note"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/icon_cost_remarks" />
 
         <EditText
-            android:id="@+id/edt_cost_type"
+            android:id="@+id/edt_add_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/img_cost_type"
+            android:layout_toRightOf="@+id/img_add_note"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
-
             android:textSize="20sp"
             android:inputType="text"
-            android:hint="填写类型"
+            android:hint="填写备注信息"
             />
     </RelativeLayout>
     <!--<Spinner
@@ -75,19 +75,92 @@
         android:layout_weight="5"></Spinner>
 -->
 
-
-    <DatePicker
+    <!--<DatePicker
         android:id="@+id/dp_cost_time"
         android:layout_width="217dp"
         android:layout_height="114dp"
         android:datePickerMode="spinner"
         android:calendarViewShown="false"
-        />
+        />-->
 
-    <Button
-        android:id="@+id/btn_save"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/img_add_date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/icon_cost_money" />
+
+        <TextView
+            android:id="@+id/txt_add_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/img_add_date"
+            android:background="#FFF"
+            android:hint="2017-10-01"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/img_add_type"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/icon_cost_money" />
+
+        <TextView
+            android:id="@+id/txt_add_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/img_add_type"
+            android:background="#FFF"
+            android:gravity="center_vertical"
+            android:hint="请选择类型"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="保存"/>
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="80dp"
+            android:onClick="toCANCEL"
+            android:text="取消"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/btn_cancel"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:onClick="toSAVE"
+            android:text="保存"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

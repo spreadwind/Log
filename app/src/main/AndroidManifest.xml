@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddCostActivity" />
-        <activity android:name=".SelectTypeActivity"></activity>
+        <activity android:name=".SelectTypeActivity" />
+        <activity android:name=".DateActivity" />
+        <activity android:name=".AddAssetActivity"></activity>
     </application>
 
 </manifest>

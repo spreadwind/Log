@@ -4,5 +4,6 @@
     <version value = "1" ></version>    //指定数据库版本号
     <list>                                 //指定所有的映射模型
         <mapping class = "com.wind.log.db.Daily"></mapping>  //添加表名
+        <mapping class = "com.wind.log.db.AssetDB"></mapping>  //添加表名
     </list>
 </litepal>

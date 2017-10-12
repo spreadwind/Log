@@ -6,33 +6,52 @@ package com.wind.log.bean;
 
 public class CostBean {
 
-    public String costType;
-    public String costDate;
-    public String costMoney;
+    public int imageId;
+    public String type;
+    public String note;
+    public String date;
+    public String money;
 
-    public String getCostType() {
-        return costType;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setCostType(String costType) {
-        this.costType = costType;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
-    public String getCostDate() {
-        return costDate;
+    public String getType() {
+        return type;
     }
 
-    public void setCostDate(String costDate) {
-        this.costDate = costDate;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getCostMoney() {
-        return costMoney;
+    public String getNote() {
+        return note;
     }
 
-    public void setCostMoney(String costMoney) {
-        this.costMoney = costMoney;
+    public void setNote(String note) {
+        this.note = note;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
 
 }
 

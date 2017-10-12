@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.wind.log.AAdapter;
 import com.wind.log.R;
+import com.wind.log.adapter.AAdapter;
 import com.wind.log.bean.AssetBean;
 import com.wind.log.db.Daily;
 
@@ -34,18 +34,19 @@ public class AssetFragment extends BaseFragment {
     public void initData() {
 
         initAssetData(); //初始化数据
-        RecyclerView recyclerView = (RecyclerView) (getActivity().findViewById(R.id.rv_asset));
+        RecyclerView rvAsset = (RecyclerView) (getActivity().findViewById(R.id.rv_asset));
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        recyclerView.setLayoutManager(layoutManager);
+        rvAsset.setLayoutManager(layoutManager);
         AAdapter adapter = new AAdapter(mAssetBeanList) ;
-        recyclerView.setAdapter(adapter);
+//        rvAsset.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        rvAsset.setAdapter(adapter);
     }
 
     private void initAssetData() {
 
         List<Daily> dailys = DataSupport.order("date desc").find(Daily.class);
 //        for (Daily daily : dailys) {
-//        for (int j=0; j<20; j++) {
+        for (int j=0; j<20; j++) {
 
             AssetBean assetBean = new AssetBean(R.drawable.icon_add ,"银行卡","余额为：", "6666");
             AssetBean assetBean2 = new AssetBean(R.drawable.icon_add ,"现金","余额为：", "8888");
@@ -57,6 +58,6 @@ public class AssetFragment extends BaseFragment {
             mAssetBeanList.add(assetBean);
             mAssetBeanList.add(assetBean2);
             mAssetBeanList.add(assetBean3);
-//        }
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp">
+    android:layout_height="50dp">
 
     <ImageView
 
@@ -14,13 +14,23 @@
     <TextView
 
         android:id="@+id/tv_select_type_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_toRightOf="@+id/img_select_type_back"
         android:layout_centerInParent="true"
-        android:gravity="center_horizontal"
+        android:layout_marginLeft="70dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
         android:hint="选择类目"
         android:textSize="30sp"
         />
+
+    <ImageView
+        android:id="@+id/img_OK"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/icon_left"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>

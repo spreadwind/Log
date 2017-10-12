@@ -8,13 +8,13 @@ public class AssetBean {
 
     private int ImageId;
     private String name;
-    private String info;
+    private String note;
     private String money;
 
-    public AssetBean(int imageId, String name,String info, String money) {
+    public AssetBean(int imageId, String name,String note, String money) {
         ImageId = imageId;
         this.name = name;
-        this.info = info;
+        this.note = note;
         this.money = money;
     }
 
@@ -34,12 +34,12 @@ public class AssetBean {
         this.name = name;
     }
 
-    public String getInfo() {
-        return info;
+    public String getNote() {
+        return note;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setNote(String info) {
+        this.note = note;
     }
 
     public String getMoney() {

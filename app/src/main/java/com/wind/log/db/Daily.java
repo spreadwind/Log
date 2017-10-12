@@ -11,6 +11,7 @@ public class Daily extends DataSupport {
 
     private int id;
     private String type;
+    private String note;
     private String date;
     private String money;  //应用用double
 
@@ -29,6 +30,14 @@ public class Daily extends DataSupport {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getDate() {
